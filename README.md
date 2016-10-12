@@ -1,4 +1,15 @@
-# Description
+<!---
+IMPORTANT
+=========
+This README.md is displayed in the WebStore as well as within Jarvis app
+Please do not change the structure of this file
+Fill-in Description, Usage & Author sections
+Make sure to rename the [en] folder into the language code your plugin is written in (ex: fr, es, de, it...)
+For multi-language plugin:
+- clone the language directory and translate commands/functions.sh
+- optionally write the Description / Usage sections in several languages
+-->
+## Description
 Permet de:
    - Donner des commandes de directions
    - D'état de lecture ( Pause / Jouer )
@@ -8,7 +19,8 @@ Permet de:
 
 NB: * signifie n'importe quel mot à cet endroit
 
-# Usage
+## Usage
+```
 Vous: `CODY BAS` (Dirige vers le bas)   
 Vous: `CODY HAUT` (Dirige vers le haut)   
 Vous: `CODY GAUCHE` (Dirige vers la gauche)   
@@ -36,6 +48,7 @@ Vous: `CODY * LISTE * PHOTOS` (Ouvre la liste des photos)
 Vous: `RELANCER CODY` (Permet d'arreter le processus Kodi actuel et d'en relancer un nouveau)   
 Vous: `QUITTER CODY` (Permet de quitter Kodi)   
 Vous: `LANCER CODY` (Permet de lancer Kodi si celui n'est pas encore actif)   
+```
 
-# Author & Contributors
-Kévin CARADANT - kevin.caradant@gmail.com
+## Author & Contributors
+[Kévin CARADANT](kevin.caradant@gmail.com)
