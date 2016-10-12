@@ -50,7 +50,7 @@ Vous: `QUITTER CODY` (Permet de quitter Kodi)
 Vous: `LANCER CODY` (Permet de lancer Kodi si celui n'est pas encore actif)   
 ```
 
-# Description
+## Description
 Allows:
    - Give directions commands
    - On the playback status (Pause / Play)
@@ -60,7 +60,7 @@ Allows:
 
 NB: * means any word at this location
 
-# Use
+## Use
 ```
 You: `CODY BOTTOM` (Directs down)   
 You: `CODY HIGH` (Runs up)   
