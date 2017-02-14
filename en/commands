@@ -1,25 +1,27 @@
-CODY CONFIRM==callUrlKodiEn '{"jsonrpc":"2.0","method":"Input.Select","id":1}'
-CODY LEFT==callUrlKodiEn '{"jsonrpc":"2.0","method":"Input.Left","id":1}'
-CODY RIGHT==callUrlKodiEn '{"jsonrpc":"2.0","method":"Input.Right","id":1}'
-CODY TOP==callUrlKodiEn '{"jsonrpc":"2.0","method":"Input.Up","id":1}'
-CODY BOTTOM==callUrlKodiEn '{"jsonrpc":"2.0","method":"Input.Down","id":1}'
-CODY PAUSE|CODY PLAY==callUrlKodiEn '{"jsonrpc":"2.0","method":"Player.PlayPause","params":{"playerid":1},"id":1}'
-CODY STOP==callUrlKodiEn '{"jsonrpc":"2.0","method":"Player.Stop","params":{"playerid":1},"id":1}'
-CODY MUTE==callUrlKodiEn '{"jsonrpc":"2.0","method":"Application.SetMute","params":{"mute":true},"id":1}'
-CODY NO MUTE==callUrlKodiEn '{"jsonrpc":"2.0","method":"Application.SetMute","params":{"mute":false},"id":1}'
-CODY BACK==callUrlKodiEn '{"jsonrpc":"2.0","method":"Input.Back","id":1}'
-CODY SHOW*INFORMATIONS*MOVIE==callUrlKodiEn '{"jsonrpc":"2.0","method":"Input.Info","id":1}'
-CODY ENABLE*SUBTITLES==callUrlKodiEn '{"jsonrpc":"2.0","id":1,"method":"Player.SetSubtitle","params":{"playerid":1,"subtitle":"on"}}'
-CODY DISABLE*SUBTITLES==callUrlKodiEn '{"jsonrpc":"2.0","id":1,"method":"Player.SetSubtitle","params":{"playerid":1,"subtitle":"off"}}'
-CODY NEXT SUBTITLE==callUrlKodiEn '{"jsonrpc":"2.0","id":1,"method":"Player.SetSubtitle","params":{"playerid":1,"subtitle":"next"}}'
-CODY FULLSCREEN==callUrlKodiEn '{"jsonrpc":"2.0","method":"GUI.SetFullscreen","params":{"fullscreen":"toggle"},"id":1}'
-CODY MAIN MENU==callUrlKodiEn '{"jsonrpc":"2.0","method":"Input.Home","id":1}'
-QUIT CODY==callUrlKodiEn '{"jsonrpc":"2.0","method":"Application.Quit","params":{"playerid":1},"id":1}'
-RESTART CODY==callUrlKodiEn '{"jsonrpc":"2.0","method":"Application.Quit","id":1}' && sleep 3 && kodi&
-START CODY==kodi&
-CODY MOVIES LIST==callUrlKodiEn '{"jsonrpc":"2.0","method":"GUI.ActivateWindow","params":{"window":"video"},"id":1}'
-CODY MUSICS LIST==callUrlKodiEn '{"jsonrpc":"2.0","method":"GUI.ActivateWindow","params":{"window":"music"},"id":1}'
-CODY PICTURES LIST==callUrlKodiEn '{"jsonrpc":"2.0","method":"GUI.ActivateWindow","params":{"window":"pictures"},"id":1}'
-CODY LOW SOUND==callUrlKodiEn '{"jsonrpc":"2.0","method":"Application.SetVolume","params":{"volume":25},"id":1}'
-CODY NORMAL SOUND==callUrlKodiEn '{"jsonrpc":"2.0","method":"Application.SetVolume","params":{"volume":50},"id":1}'
-CODY HIGH SOUND==callUrlKodiEn '{"jsonrpc":"2.0","method":"Application.SetVolume","params":{"volume":90},"id":1}'
+*CODY CONTROL*==say "controle de codi démarré"
+>*CONFIRM*==callUrlKodiFr '{"jsonrpc":"2.0","method":"Input.Select","id":1}'; return
+>*LEFT*==callUrlKodiFr '{"jsonrpc":"2.0","method":"Input.Left","id":1}'; return
+>*RIGHT*==callUrlKodiFr '{"jsonrpc":"2.0","method":"Input.Right","id":1}'; return
+>*TOP*==callUrlKodiFr '{"jsonrpc":"2.0","method":"Input.Up","id":1}'; return
+>*BOTTOM*==callUrlKodiFr '{"jsonrpc":"2.0","method":"Input.Down","id":1}'; return
+>*PAUSE*|*PLAY*==callUrlKodiFr '{"jsonrpc":"2.0","method":"Player.PlayPause","params":{"playerid":1},"id":1}'; return
+>*STOP*==callUrlKodiFr '{"jsonrpc":"2.0","method":"Player.Stop","params":{"playerid":1},"id":1}'; return
+>*BACK*==callUrlKodiFr '{"jsonrpc":"2.0","method":"Input.Back","id":1}'; return
+>*MAIN MENU*==callUrlKodiFr '{"jsonrpc":"2.0","method":"Input.Home","id":1}'; return
+>*LOW*SOUND*==callUrlKodiFr '{"jsonrpc":"2.0","method":"Application.SetVolume","params":{"volume":25},"id":1}'; return
+>*MEDIUM*SOUND==callUrlKodiFr '{"jsonrpc":"2.0","method":"Application.SetVolume","params":{"volume":50},"id":1}'; return
+>*HIGH*SOUND*==callUrlKodiFr '{"jsonrpc":"2.0","method":"Application.SetVolume","params":{"volume":90},"id":1}'; return
+>*NO*MUTE==callUrlKodiFr '{"jsonrpc":"2.0","method":"Application.SetMute","params":{"mute":false},"id":1}'; return
+>*MUTE*==callUrlKodiFr '{"jsonrpc":"2.0","method":"Application.SetMute","params":{"mute":true},"id":1}'; return
+>*SHOW*INFORMATIONS*MOVIE*==callUrlKodiFr '{"jsonrpc":"2.0","method":"Input.Info","id":1}'; return
+>*NEXT SUBTITLE*==callUrlKodiFr '{"jsonrpc":"2.0","id":1,"method":"Player.SetSubtitle","params":{"playerid":1,"subtitle":"next"}}'; return
+>*DISABLE*SUBTITLES*==callUrlKodiFr '{"jsonrpc":"2.0","id":1,"method":"Player.SetSubtitle","params":{"playerid":1,"subtitle":"off"}}'; return
+>*ENABLE*SUBTITLES*==callUrlKodiFr '{"jsonrpc":"2.0","id":1,"method":"Player.SetSubtitle","params":{"playerid":1,"subtitle":"on"}}'; return
+>*FULLSCREEN==callUrlKodiFr '{"jsonrpc":"2.0","method":"GUI.SetFullscreen","params":{"fullscreen":"toggle"},"id":1}'; return
+>*MOVIES LIST*==callUrlKodiFr '{"jsonrpc":"2.0","method":"GUI.ActivateWindow","params":{"window":"video"},"id":1}'; return
+>*MUSICS LIST*==callUrlKodiFr '{"jsonrpc":"2.0","method":"GUI.ActivateWindow","params":{"window":"music"},"id":1}'; return
+>*PICTURES LIST*==callUrlKodiFr '{"jsonrpc":"2.0","method":"GUI.ActivateWindow","params":{"window":"pictures"},"id":1}'; return
+>FINISH*WITH*CODI==say "controle de codi terminé"
+*LEAVE CODI*==callUrlKodiFr '{"jsonrpc":"2.0","method":"Application.Quit","params":{"playerid":1},"id":1}'
+*START*CODI*==kodi&
+*RESTART*CODI*==callUrlKodiFr '{"jsonrpc":"2.0","method":"Application.Quit","id":1}' && sleep 3 && kodi&
