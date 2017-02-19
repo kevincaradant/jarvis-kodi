@@ -1,27 +1,38 @@
-*CONTROL*CODI*==say "controle de codi démarré"
->*VALIDE*==callUrlKodiFr '{"jsonrpc":"2.0","method":"Input.Select","id":1}'; return
->*GAUCHE*==callUrlKodiFr '{"jsonrpc":"2.0","method":"Input.Left","id":1}'; return
->*DROITE*==callUrlKodiFr '{"jsonrpc":"2.0","method":"Input.Right","id":1}'; return
->*HAUT*==callUrlKodiFr '{"jsonrpc":"2.0","method":"Input.Up","id":1}'; return
->*BAS*==callUrlKodiFr '{"jsonrpc":"2.0","method":"Input.Down","id":1}'; return
->*PAUSE*|*JOUER*==callUrlKodiFr '{"jsonrpc":"2.0","method":"Player.PlayPause","params":{"playerid":1},"id":1}'; return
->*ARRET*==callUrlKodiFr '{"jsonrpc":"2.0","method":"Player.Stop","params":{"playerid":1},"id":1}'; return
->*RETOUR*==callUrlKodiFr '{"jsonrpc":"2.0","method":"Input.Back","id":1}'; return
->*MENU*PRINCIPAL*==callUrlKodiFr '{"jsonrpc":"2.0","method":"Input.Home","id":1}'; return
->*VOLUME*BAS*==callUrlKodiFr '{"jsonrpc":"2.0","method":"Application.SetVolume","params":{"volume":25},"id":1}'; return
->*VOLUME*NORMAL*==callUrlKodiFr '{"jsonrpc":"2.0","method":"Application.SetVolume","params":{"volume":50},"id":1}'; return
->*VOLUME*HAUT*==callUrlKodiFr '{"jsonrpc":"2.0","method":"Application.SetVolume","params":{"volume":90},"id":1}'; return
->*NON*MUET*==callUrlKodiFr '{"jsonrpc":"2.0","method":"Application.SetMute","params":{"mute":false},"id":1}'; return
->*MUET*==callUrlKodiFr '{"jsonrpc":"2.0","method":"Application.SetMute","params":{"mute":true},"id":1}'; return
->*AFFICHE*INFORMATIONS*FILM*==callUrlKodiFr '{"jsonrpc":"2.0","method":"Input.Info","id":1}'; return
->*SOUS*TITRE*SUIVANT*==callUrlKodiFr '{"jsonrpc":"2.0","id":1,"method":"Player.SetSubtitle","params":{"playerid":1,"subtitle":"next"}}'; return
->*DESACTIVE*SOUS*TITRE*==callUrlKodiFr '{"jsonrpc":"2.0","id":1,"method":"Player.SetSubtitle","params":{"playerid":1,"subtitle":"off"}}'; return
->*ACTIVE*SOUS*TITRE*==callUrlKodiFr '{"jsonrpc":"2.0","id":1,"method":"Player.SetSubtitle","params":{"playerid":1,"subtitle":"on"}}'; return
->*PLEIN*ECRAN*==callUrlKodiFr '{"jsonrpc":"2.0","method":"GUI.SetFullscreen","params":{"fullscreen":"toggle"},"id":1}'; return
->*AFFICHE*LISTE*FILM*==callUrlKodiFr '{"jsonrpc":"2.0","method":"GUI.ActivateWindow","params":{"window":"video"},"id":1}'; return
->*AFFICHE*LISTE*MUSIQUE*==callUrlKodiFr '{"jsonrpc":"2.0","method":"GUI.ActivateWindow","params":{"window":"music"},"id":1}'; return
->*AFFICHE*LISTE*PHOTO*==callUrlKodiFr '{"jsonrpc":"2.0","method":"GUI.ActivateWindow","params":{"window":"pictures"},"id":1}'; return
+*CONTROLE*CODI*==say "controle de codi démarré"
+>*VOLUME*BAS*==callUrlKodi '{"jsonrpc":"2.0","method":"Application.SetVolume","params":{"volume":25},"id":1}'; return
+>*VOLUME*NORMAL*==callUrlKodi '{"jsonrpc":"2.0","method":"Application.SetVolume","params":{"volume":50},"id":1}'; return
+>*VOLUME*HAUT*==callUrlKodi '{"jsonrpc":"2.0","method":"Application.SetVolume","params":{"volume":90},"id":1}'; return
+>*VALIDE*==callUrlKodi '{"jsonrpc":"2.0","method":"Input.Select","id":1}'; return
+>*GAUCHE*==callUrlKodi '{"jsonrpc":"2.0","method":"Input.Left","id":1}'; return
+>*DROITE*==callUrlKodi '{"jsonrpc":"2.0","method":"Input.Right","id":1}'; return
+>*HAUT*==callUrlKodi '{"jsonrpc":"2.0","method":"Input.Up","id":1}'; return
+>*BAS*==callUrlKodi '{"jsonrpc":"2.0","method":"Input.Down","id":1}'; return
+>*PAUSE*|*JOUER*==callUrlKodi '{"jsonrpc":"2.0","method":"Player.PlayPause","params":{"playerid":1},"id":1}'; return
+>*ARRET*==callUrlKodi '{"jsonrpc":"2.0","method":"Player.Stop","params":{"playerid":1},"id":1}'; return
+>*RETOUR*==callUrlKodi '{"jsonrpc":"2.0","method":"Input.Back","id":1}'; return
+>*MENU*PRINCIPAL*==callUrlKodi '{"jsonrpc":"2.0","method":"Input.Home","id":1}'; return
+>*NON*MUET*==callUrlKodi '{"jsonrpc":"2.0","method":"Application.SetMute","params":{"mute":false},"id":1}'; return
+>*MUET*==callUrlKodi '{"jsonrpc":"2.0","method":"Application.SetMute","params":{"mute":true},"id":1}'; return
+>*AFFICHE*INFORMATIONS*FILM*==callUrlKodi '{"jsonrpc":"2.0","method":"Input.Info","id":1}'; return
+>*SOUS*TITRE*SUIVANT*==callUrlKodi '{"jsonrpc":"2.0","id":1,"method":"Player.SetSubtitle","params":{"playerid":1,"subtitle":"next"}}'; return
+>*DESACTIVE*SOUS*TITRE*==callUrlKodi '{"jsonrpc":"2.0","id":1,"method":"Player.SetSubtitle","params":{"playerid":1,"subtitle":"off"}}'; return
+>*ACTIVE*SOUS*TITRE*==callUrlKodi '{"jsonrpc":"2.0","id":1,"method":"Player.SetSubtitle","params":{"playerid":1,"subtitle":"on"}}'; return
+>*PLEIN*ECRAN*==callUrlKodi '{"jsonrpc":"2.0","method":"GUI.SetFullscreen","params":{"fullscreen":"toggle"},"id":1}'; return
+>*AFFICHE*LISTE*FILM*==callUrlKodi '{"jsonrpc":"2.0","method":"GUI.ActivateWindow","params":{"window":"video"},"id":1}'; return
+>*AFFICHE*LISTE*MUSIQUE*==callUrlKodi '{"jsonrpc":"2.0","method":"GUI.ActivateWindow","params":{"window":"music"},"id":1}'; return
+>*AFFICHE*LISTE*PHOTO*==callUrlKodi '{"jsonrpc":"2.0","method":"GUI.ActivateWindow","params":{"window":"pictures"},"id":1}'; return
+>*AFFICHE*CODEC*VIDEO*==callUrlKodi '{"jsonrpc":"2.0","method":"Input.ShowCodec","id":1}'; 
+>*CACHE*CODEC*VIDEO*==callUrlKodi '{"jsonrpc":"2.0","method":"Input.ShowCodec","id":1}'; return
+>*MET*A*JOUR*MEDIATHEQUE*VIDEO*==callUrlKodi '{"jsonrpc":"2.0","method":"VideoLibrary.Scan","id":1}'; return
+>*NETTOYAGE*MEDIATHEQUE*VIDEO*==callUrlKodi '{"jsonrpc":"2.0","method":"VideoLibrary.Clean","id":1}'; return
+>*MET*A*JOUR*MEDIATHEQUE*MUSIQUE*==callUrlKodi '{"jsonrpc":"2.0","method":"AudioLibrary.Scan","id":1}'; return
+>*NETTOYAGE*MEDIATHEQUE*MUSIQUE*==callUrlKodi '{"jsonrpc":"2.0","method":"AudioLibrary.Clean","id":1}'; return
+>*AFFICHE*OSD*==callUrlKodi '{"jsonrpc":"2.0","method":"Input.ShowOSD","id":1}'; return
+>*CACHE*OSD*==callUrlKodi '{"jsonrpc":"2.0","method":"Input.ShowOSD","id":1}'; return
+>*PISTE*SUIVANTE*==callUrlKodi '{"jsonrpc":"2.0","method":"Player.GoTo","params":{"playerid":0,"to":"next"},"id":1}'; return
+>*PISTE*PRECEDENTE*==callUrlKodi '{"jsonrpc":"2.0","method":"Player.GoTo","params":{"playerid":0,"to":"previous"},"id":1}'; return
+>*LANCE*FILM(*)==playMovieSearched (1); return
 >TERMINE*AVEC*CODI==say "controle de codi terminé"
-*QUITTE*CODI*==callUrlKodiFr '{"jsonrpc":"2.0","method":"Application.Quit","params":{"playerid":1},"id":1}'
+*QUITTE*CODI*==callUrlKodi '{"jsonrpc":"2.0","method":"Application.Quit","params":{"playerid":1},"id":1}'
 *LANCE*CODI*==kodi&
-*RELANCE*CODI*==callUrlKodiFr '{"jsonrpc":"2.0","method":"Application.Quit","id":1}' && sleep 3 && kodi&
+*RELANCE*CODI*==callUrlKodi '{"jsonrpc":"2.0","method":"Application.Quit","id":1}' && sleep 3 && kodi&
