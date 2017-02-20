@@ -1,13 +1,13 @@
-*CONTROLE*CODI*==say "controle de codi démarré"
->*VOLUME*BAS*==callUrlKodi '{"jsonrpc":"2.0","method":"Application.SetVolume","params":{"volume":25},"id":1}'; return
+*CONTROLE*CODI*==say "controle de kodi démarré"
+>*VOLUME*FAIBLE*==callUrlKodi '{"jsonrpc":"2.0","method":"Application.SetVolume","params":{"volume":25},"id":1}'; return
 >*VOLUME*NORMAL*==callUrlKodi '{"jsonrpc":"2.0","method":"Application.SetVolume","params":{"volume":50},"id":1}'; return
->*VOLUME*HAUT*==callUrlKodi '{"jsonrpc":"2.0","method":"Application.SetVolume","params":{"volume":90},"id":1}'; return
+>*VOLUME*FORT*==callUrlKodi '{"jsonrpc":"2.0","method":"Application.SetVolume","params":{"volume":90},"id":1}'; return
 >*VALIDE*==callUrlKodi '{"jsonrpc":"2.0","method":"Input.Select","id":1}'; return
 >*GAUCHE*==callUrlKodi '{"jsonrpc":"2.0","method":"Input.Left","id":1}'; return
 >*DROITE*==callUrlKodi '{"jsonrpc":"2.0","method":"Input.Right","id":1}'; return
 >*HAUT*==callUrlKodi '{"jsonrpc":"2.0","method":"Input.Up","id":1}'; return
 >*BAS*==callUrlKodi '{"jsonrpc":"2.0","method":"Input.Down","id":1}'; return
->*PAUSE*|*JOUER*==callUrlKodi '{"jsonrpc":"2.0","method":"Player.PlayPause","params":{"playerid":'$(getActivePlayerId)'},"id":1}'; return
+>*PAUSE*|*LIRE*|*REPRENDRE*==callUrlKodi '{"jsonrpc":"2.0","method":"Player.PlayPause","params":{"playerid":'$(getActivePlayerId)'},"id":1}'; return
 >*ARRET*==callUrlKodi '{"jsonrpc":"2.0","method":"Player.Stop","params":{"playerid":'$(getActivePlayerId)'},"id":1}'; return
 >*RETOUR*==callUrlKodi '{"jsonrpc":"2.0","method":"Input.Back","id":1}'; return
 >*MENU*PRINCIPAL*==callUrlKodi '{"jsonrpc":"2.0","method":"Input.Home","id":1}'; return
@@ -32,7 +32,9 @@
 >*PISTE*SUIVANTE*==callUrlKodi '{"jsonrpc":"2.0","method":"Player.GoTo","params":{"playerid":'$(getActivePlayerId)',"to":"next"},"id":1}'; return
 >*PISTE*PRECEDENTE*==callUrlKodi '{"jsonrpc":"2.0","method":"Player.GoTo","params":{"playerid":'$(getActivePlayerId)',"to":"previous"},"id":1}'; return
 >*LANCE*FILM(*)==playMovieSearched (1); return
->TERMINE*AVEC*CODI==say "controle de codi terminé"
+>*LANCE*SERIE(*)SAISON(*)EPISODE(*)==playTvShowSearched (1) (2) (3); return
+>ENCORE*==jv_repeat_last_command; return
+>TERMINE*AVEC*CODI==say "controle de kodi terminé"
 *QUITTE*CODI*==callUrlKodi '{"jsonrpc":"2.0","method":"Application.Quit","params":{"playerid":'$(getActivePlayerId)'},"id":1}'
 *LANCE*CODI*==kodi&
 *RELANCE*CODI*==callUrlKodi '{"jsonrpc":"2.0","method":"Application.Quit","id":1}' && sleep 3 && kodi&

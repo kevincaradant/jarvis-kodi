@@ -32,7 +32,9 @@
 >*NEXT*TRACK*==callUrlKodi '{"jsonrpc":"2.0","method":"Player.GoTo","params":{"playerid":'$(getActivePlayerId)',"to":"next"},"id":1}'; return
 >*PREVIOUS*TRACK*==callUrlKodi '{"jsonrpc":"2.0","method":"Player.GoTo","params":{"playerid":'$(getActivePlayerId)',"to":"previous"},"id":1}'; return
 >*START*MOVIE(*)==playMovieSearched (1); return
->FINISH*WITH*CODI==say "end of the kodi control"
-*LEAVE CODI*==callUrlKodi '{"jsonrpc":"2.0","method":"Application.Quit","params":{"playerid":'$(getActivePlayerId)'},"id":1}'
-*START*CODI*==kodi&
-*RESTART*CODI*==callUrlKodi '{"jsonrpc":"2.0","method":"Application.Quit","id":1}' && sleep 3 && kodi&
+>*START*TVSHOW(*)SEASON(*)EPISODE(*)==playTvShowSearched (1) (2) (3); return
+>AGAIN*==jv_repeat_last_command; return
+>FINISH*WITH*CODY==say "end of the kodi control"
+*LEAVE CODY*==callUrlKodi '{"jsonrpc":"2.0","method":"Application.Quit","params":{"playerid":'$(getActivePlayerId)'},"id":1}'
+*START*CODY*==kodi&
+*RESTART*CODY*==callUrlKodi '{"jsonrpc":"2.0","method":"Application.Quit","id":1}' && sleep 3 && kodi&
