@@ -9,6 +9,7 @@ For multi-language plugin:
 - clone the language directory and translate commands/functions.sh
 - optionally write the Description / Usage sections in several languages
 -->
+
 ## Description
 Permet de:
    - Donner des commandes de directions
@@ -20,11 +21,12 @@ Permet de:
 
 NB: * signifie n'importe quel mot à cet endroit
 
-VERSION: V0.2
+VERSION: V0.3
+
 
 ## Usage
 ```
-Vous: `CONTROLE CODI` (Commencer à intéragir avec KODI)
+Vous: `CONTROLE *KODI|*CODI*|*CODY*|*KODY*|*KAUDI*|*KAUDY*|*CAUDI*|*CAUDY*` (Commencer à intéragir avec KODI)
 Vous: `*BAS*` (Dirige vers le bas)   
 Vous: `*HAUT*` (Dirige vers le haut)   
 Vous: `*GAUCHE*` (Dirige vers la gauche)   
@@ -32,8 +34,8 @@ Vous: `*DROITE*` (Dirige vers la droite)
 Vous: `*VOLUME*FAIBLE*` (Met le volume a 25 pourcents)   
 Vous: `*VOLUME*NORMAL*` (Met le volume a 50 pourcents)   
 Vous: `*VOLUME*FORT*` (Met le volume a 90 pourcents)   
-Vous: `*AFFICHE*INFORMATIONS*FILM*` (Affiche les informations relative au film )   
-Vous: `*CACHE*INFORMATIONS*FILM*` (Affiche les informations relative au film )   
+Vous: `*AFFICHE*INFORMATION*FILM*` (Affiche les informations relative au film )   
+Vous: `*CACHE*INFORMATION*FILM*` (Affiche les informations relative au film )   
 Vous: `*MUET*` (Coupe le son du film et de Kodi)   
 Vous: `*RETOUR*` (Revient en arrière de 1 cran dans le menu)   
 Vous: `*NON*MUET*` (Active à nouveau le son du film et de Kodi)   
@@ -61,11 +63,20 @@ Vous: `*PISTE*SUIVANTE*` (Piste de musique suivante si disponible)
 Vous: `*PISTE*PRECEDENTE*` (Piste de musique précedente si disponible)
 Vous: `*LANCE*FILM (LE NOM DU FILM)*` (Lancer un film en donnant son nom / mot clé)
 Vous: `*LANCE * SERIE (LE NOM DE LA SERIE)* SAISON (LE NUMERO DE LA SAISON)* EPISODE (LE NUMERO DE L'EPISODE)*` (Lancer un épisode de série en donnant son nom / mot clé puis le numéro de la saison puis l'épisode souhaité)
-Vous: `TERMINE*AVEC*CODI` (Termine l'intéraction avec KODI)
-Vous: `*RELANCE*CODI*` (Permet d'arreter le processus Kodi actuel et d'en relancer un nouveau)   
-Vous: `*QUITTE*CODI*` (Permet de quitter Kodi)   
-Vous: `*LANCE*CODI*` (Permet de lancer Kodi si celui ci n'est pas encore actif)   
+Vous: `TERMINE*AVEC*KODI|*CODI*|*CODY*|*KODY*|*KAUDI*|*KAUDY*|*CAUDI*|*CAUDY*` (Termine l'intéraction avec KODI)
+Vous: `*RELANCE*KODI|*CODI*|*CODY*|*KODY*|*KAUDI*|*KAUDY*|*CAUDI*|*CAUDY*` (Permet d'arreter le processus Kodi actuel et d'en relancer un nouveau)   
+Vous: `*QUITTE*KODI|*CODI*|*CODY*|*KODY*|*KAUDI*|*KAUDY*|*CAUDI*|*CAUDY*` (Permet de quitter Kodi)   
+Vous: `*LANCE*KODI|*CODI*|*CODY*|*KODY*|*KAUDI*|*KAUDY*|*CAUDI*|*CAUDY*` (Permet de lancer Kodi si celui ci n'est pas encore actif)   
 ```
+
+## WARNING
+Redémarrer Jarvis après avoir installé ce plugin.   
+Le plugin KODI a besoin de la librairie JQ.   
+Le script permettant d'installer automatiquement cette librarie est en version BETA.   
+Si le plugin venait à ne pas fonctionner, vérifiez que vous avez bien la librarie JQ installée sur votre ordinateur.   
+
+
+
 
 ## Description
 Allows:
@@ -79,11 +90,11 @@ Allows:
 NB: * means any word at this location
 
 
-VERSION: V0.2
+VERSION: V0.3
 
 ## Use
 ```
-You: `CODY CONTROL` (Start the ineractions with KODI)
+You: `*KODI|*CODI*|*CODY*|*KODY*|*KAUDI*|*KAUDY*|*CAUDI*|*CAUDY* CONTROL` (Start the ineractions with KODI)
 You: `*BOTTOM*` (Directs down)   
 You: `*HIGH*` (Runs up)   
 You: `*LEFT*` (Directs to the left)   
@@ -119,11 +130,17 @@ You: `*NEXT*TRACK*` (Play the next music track)
 You: `*PREVIOUS*TRACK*` (Play the previous music track)
 You: `*START*MOVIE (THE NAME OF YOUR MOVIE)*` (Start a movie giving it name)
 You: `*START*TVSHOW (THE NAME OF YOUR TVSHOW)* SEASON (THE NUMBER OF THE SEASON)* EPISODE (THE NUMBER OF THE EPISODE)*` (Start a episode of tvshow giving it name, then it season number and to finish it episode number)
-You: `*FINISH*WITH*CODY` (To stop the interactions with KODI) 
-You: `*RESTART*CODY*` (Used to stop the current Kodi process and to start a new)   
-You: `*QUIT*CODY*` (Exits Kodi)   
-You: `*START*CODY*` (Starts Kodi if it is not yet active)
+You: `*FINISH*WITH*KODI|*CODI*|*CODY*|*KODY*|*KAUDI*|*KAUDY*|*CAUDI*|*CAUDY*` (To stop the interactions with KODI) 
+You: `*RESTART*KODI|*CODI*|*CODY*|*KODY*|*KAUDI*|*KAUDY*|*CAUDI*|*CAUDY*` (Used to stop the current Kodi process and to start a new)   
+You: `*QUIT*KODI|*CODI*|*CODY*|*KODY*|*KAUDI*|*KAUDY*|*CAUDI*|*CAUDY*` (Exits Kodi)   
+You: `*START*KODI|*CODI*|*CODY*|*KODY*|*KAUDI*|*KAUDY*|*CAUDI*|*CAUDY*` (Starts Kodi if it is not yet active)
 ```
 
+## WARNING
+Please restart Jarvis after to install this plugin.   
+This KODI plugin needs the JQ library.   
+The auto installation on multi OS is in BETA version.   
+If something wrong, check that you have jq installed on your computer.   
+
 ## Author & Contributors
-[Kévin CARADANT] (kevin.caradant@gmail.com)
+Kévin CARADANT (kevin.caradant@gmail.com)

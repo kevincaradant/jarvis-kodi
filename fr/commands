@@ -1,4 +1,4 @@
-*CONTROLE*CODI*==say "controle de kodi démarré"
+*CONTROLE*KODI|*CODI*|*CODY*|*KODY*|*KAUDI*|*KAUDY*|*CAUDI*|*CAUDY*==say "controle de kodi démarré"
 >*VOLUME*FAIBLE*==callUrlKodi '{"jsonrpc":"2.0","method":"Application.SetVolume","params":{"volume":25},"id":1}'; return
 >*VOLUME*NORMAL*==callUrlKodi '{"jsonrpc":"2.0","method":"Application.SetVolume","params":{"volume":50},"id":1}'; return
 >*VOLUME*FORT*==callUrlKodi '{"jsonrpc":"2.0","method":"Application.SetVolume","params":{"volume":90},"id":1}'; return
@@ -13,7 +13,7 @@
 >*MENU*PRINCIPAL*==callUrlKodi '{"jsonrpc":"2.0","method":"Input.Home","id":1}'; return
 >*NON*MUET*==callUrlKodi '{"jsonrpc":"2.0","method":"Application.SetMute","params":{"mute":false},"id":1}'; return
 >*MUET*==callUrlKodi '{"jsonrpc":"2.0","method":"Application.SetMute","params":{"mute":true},"id":1}'; return
->*AFFICHE*INFORMATIONS*FILM*==callUrlKodi '{"jsonrpc":"2.0","method":"Input.Info","id":1}'; return
+>*AFFICHE*INFORMATION*FILM*==callUrlKodi '{"jsonrpc":"2.0","method":"Input.Info","id":1}'; return
 >*SOUS*TITRE*SUIVANT*==callUrlKodi '{"jsonrpc":"2.0","id":1,"method":"Player.SetSubtitle","params":{"playerid":'$(getActivePlayerId)',"subtitle":"next"}}'; return
 >*DESACTIVE*SOUS*TITRE*==callUrlKodi '{"jsonrpc":"2.0","id":1,"method":"Player.SetSubtitle","params":{"playerid":'$(getActivePlayerId)',"subtitle":"off"}}'; return
 >*ACTIVE*SOUS*TITRE*==callUrlKodi '{"jsonrpc":"2.0","id":1,"method":"Player.SetSubtitle","params":{"playerid":'$(getActivePlayerId)',"subtitle":"on"}}'; return
@@ -34,7 +34,7 @@
 >*LANCE*FILM(*)==playMovieSearched (1); return
 >*LANCE*SERIE(*)SAISON(*)EPISODE(*)==playTvShowSearched (1) (2) (3); return
 >ENCORE*==jv_repeat_last_command; return
->TERMINE*AVEC*CODI==say "controle de kodi terminé"
-*QUITTE*CODI*==callUrlKodi '{"jsonrpc":"2.0","method":"Application.Quit","params":{"playerid":'$(getActivePlayerId)'},"id":1}'
-*LANCE*CODI*==kodi&
-*RELANCE*CODI*==callUrlKodi '{"jsonrpc":"2.0","method":"Application.Quit","id":1}' && sleep 3 && kodi&
+>TERMINE*KODI|*CODI*|*CODY*|*KODY*|*KAUDI*|*KAUDY*|*CAUDI*|*CAUDY*==say "Controle de kodi terminé"
+*QUITTE*KODI|*CODI*|*CODY*|*KODY*|*KAUDI*|*KAUDY*|*CAUDI*|*CAUDY*==callUrlKodi '{"jsonrpc":"2.0","method":"Application.Quit","params":{"playerid":'$(getActivePlayerId)'},"id":1}'
+*LANCE*KODI|*CODI*|*CODY*|*KODY*|*KAUDI*|*KAUDY*|*CAUDI*|*CAUDY*==kodi&
+*RELANCE*KODI|*CODI*|*CODY*|*KODY*|*KAUDI*|*KAUDY*|*CAUDI*|*CAUDY*==callUrlKodi '{"jsonrpc":"2.0","method":"Application.Quit","id":1}' && sleep 3 && kodi&
