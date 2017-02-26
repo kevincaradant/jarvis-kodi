@@ -20,6 +20,7 @@
 >*FULLSCREEN*==callUrlKodi '{"jsonrpc":"2.0","method":"GUI.SetFullscreen","params":{"fullscreen":"toggle"},"id":1}'; return
 >*MOVIES*LIST*==callUrlKodi '{"jsonrpc":"2.0","method":"GUI.ActivateWindow","params":{"window":"video"},"id":1}'; return
 >*MUSICS*LIST*==callUrlKodi '{"jsonrpc":"2.0","method":"GUI.ActivateWindow","params":{"window":"music"},"id":1}'; return
+>*FAVOURITE*LIST*==callUrlKodi '{"jsonrpc":"2.0","method":"GUI.ActivateWindow","params":{"window":"favourites"},"id":1}'; return
 >*PICTURES*LIST*==callUrlKodi '{"jsonrpc":"2.0","method":"GUI.ActivateWindow","params":{"window":"pictures"},"id":1}'; return
 >*SHOW*VIDEO*CODEC*==callUrlKodi '{"jsonrpc":"2.0","method":"Input.ShowCodec","id":1}'; return
 >*HIDE*VIDEO*CODEC*==callUrlKodi '{"jsonrpc":"2.0","method":"Input.ShowCodec","id":1}'; return
@@ -31,8 +32,9 @@
 >*HIDE*OSD*==callUrlKodi '{"jsonrpc":"2.0","method":"Input.ShowOSD","id":1}'; return
 >*NEXT*TRACK*==callUrlKodi '{"jsonrpc":"2.0","method":"Player.GoTo","params":{"playerid":'$(getActivePlayerId)',"to":"next"},"id":1}'; return
 >*PREVIOUS*TRACK*==callUrlKodi '{"jsonrpc":"2.0","method":"Player.GoTo","params":{"playerid":'$(getActivePlayerId)',"to":"previous"},"id":1}'; return
->*START*MOVIE(*)==playMovieSearched (1); return
->*START*TVSHOW(*)SEASON(*)EPISODE(*)==playTvShowSearched (1) (2) (3); return
+>*START*MOVIE (*)==playMovieSearched (1); return
+>*EXECUTE PLUGIN* (*)|*START PLUGIN (*)==callUrlKodi "{\"jsonrpc\":\"2.0\",\"method\":\"Addons.ExecuteAddon\",\"params\":{\"addonid\":\"plugin.video.(1)\"},\"id\":1}"; return
+>*START*TVSHOW (*) SEASON (*) EPISODE (*)==playTvShowSearched (1) (2) (3); return
 >AGAIN*==jv_repeat_last_command; return
 >FINISH*WITH*KODI|*CODI*|*CODY*|*KODY*|*KAUDI*|*KAUDY*|*CAUDI*|*CAUDY*==say "end of the kodi control"
 *LEAVE *KODI|*CODI*|*CODY*|*KODY*|*KAUDI*|*KAUDY*|*CAUDI*|*CAUDY*==callUrlKodi '{"jsonrpc":"2.0","method":"Application.Quit","params":{"playerid":'$(getActivePlayerId)'},"id":1}'

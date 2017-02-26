@@ -18,8 +18,9 @@
 >*DESACTIVE*SOUS*TITRE*==callUrlKodi '{"jsonrpc":"2.0","id":1,"method":"Player.SetSubtitle","params":{"playerid":'$(getActivePlayerId)',"subtitle":"off"}}'; return
 >*ACTIVE*SOUS*TITRE*==callUrlKodi '{"jsonrpc":"2.0","id":1,"method":"Player.SetSubtitle","params":{"playerid":'$(getActivePlayerId)',"subtitle":"on"}}'; return
 >*PLEIN*ECRAN*==callUrlKodi '{"jsonrpc":"2.0","method":"GUI.SetFullscreen","params":{"fullscreen":"toggle"},"id":1}'; return
->*AFFICHE*LISTE*FILM*==callUrlKodi '{"jsonrpc":"2.0","method":"GUI.ActivateWindow","params":{"window":"video"},"id":1}'; return
+>*AFFICHE*LISTE*FILM*==callUrlKodi '{"jsonrpc":"2.0","method":"GUI.ActivateWindow","params":{"window":"videos"},"id":1}'; return
 >*AFFICHE*LISTE*MUSIQUE*==callUrlKodi '{"jsonrpc":"2.0","method":"GUI.ActivateWindow","params":{"window":"music"},"id":1}'; return
+>*AFFICHE*LISTE*FAVORI*==callUrlKodi '{"jsonrpc":"2.0","method":"GUI.ActivateWindow","params":{"window":"favourites"},"id":1}'; return
 >*AFFICHE*LISTE*PHOTO*==callUrlKodi '{"jsonrpc":"2.0","method":"GUI.ActivateWindow","params":{"window":"pictures"},"id":1}'; return
 >*AFFICHE*CODEC*VIDEO*==callUrlKodi '{"jsonrpc":"2.0","method":"Input.ShowCodec","id":1}'; 
 >*CACHE*CODEC*VIDEO*==callUrlKodi '{"jsonrpc":"2.0","method":"Input.ShowCodec","id":1}'; return
@@ -31,8 +32,9 @@
 >*CACHE*OSD*==callUrlKodi '{"jsonrpc":"2.0","method":"Input.ShowOSD","id":1}'; return
 >*PISTE*SUIVANTE*==callUrlKodi '{"jsonrpc":"2.0","method":"Player.GoTo","params":{"playerid":'$(getActivePlayerId)',"to":"next"},"id":1}'; return
 >*PISTE*PRECEDENTE*==callUrlKodi '{"jsonrpc":"2.0","method":"Player.GoTo","params":{"playerid":'$(getActivePlayerId)',"to":"previous"},"id":1}'; return
->*LANCE*FILM(*)==playMovieSearched (1); return
->*LANCE*SERIE(*)SAISON(*)EPISODE(*)==playTvShowSearched (1) (2) (3); return
+>*LANCE*FILM (*)==playMovieSearched (1); return
+>*EXECUTE PLUGIN* (*)|*LANCE PLUGIN (*)==callUrlKodi "{\"jsonrpc\":\"2.0\",\"method\":\"Addons.ExecuteAddon\",\"params\":{\"addonid\":\"plugin.video.(1)\"},\"id\":1}"; return
+>*LANCE*SERIE (*) SAISON (*) EPISODE (*)==playTvShowSearched (1) (2) (3); return
 >ENCORE*==jv_repeat_last_command; return
 >TERMINE*KODI|*CODI*|*CODY*|*KODY*|*KAUDI*|*KAUDY*|*CAUDI*|*CAUDY*==say "Controle de kodi terminé"
 *QUITTE*KODI|*CODI*|*CODY*|*KODY*|*KAUDI*|*KAUDY*|*CAUDI*|*CAUDY*==callUrlKodi '{"jsonrpc":"2.0","method":"Application.Quit","params":{"playerid":'$(getActivePlayerId)'},"id":1}'

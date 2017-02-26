@@ -84,6 +84,36 @@ getNumberIntFromStr(){
     elif [ "twenty" == $1 ]
     then
        echo 20
+    elif [ "twenty-one" == $1 ] || [ "twenty one" == $1 ]
+    then
+       echo 21
+    elif [ "twenty-two" == $1 ] || [ "twenty two" == $1 ] || [ "twenty too" == $1 ] || [ "twenty to" == $1 ]
+    then
+       echo 22
+    elif [ "twenty-three" == $1 ] || [ "twenty tree" == $1 ] || [ "twenty three" == $1 ]
+    then
+       echo 23
+    elif [ "twenty-four" == $1 ] || [ "twenty four" == $1 ] || [ "twenty for" == $1 ]
+    then
+       echo 24
+    elif [ "twenty-five" == $1 ] || [ "twenty five" == $1 ]
+    then
+       echo 25
+    elif [ "twenty-six" == $1 ] || [ "twenty six" == $1 ]
+    then
+       echo 26
+    elif [ "twenty-seven" == $1 ] || [ "twenty seven" == $1 ]
+    then
+       echo 27
+    elif [ "twenty-eight" == $1 ] || [ "twenty eight" == $1 ]
+    then
+       echo 28
+    elif [ "twenty-nine" == $1 ] || [ "twenty nine" == $1 ]
+    then
+       echo 29
+    elif [ "thirty" == $1 ]
+    then
+       echo 30
     else
        echo $1
     fi
