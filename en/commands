@@ -33,7 +33,7 @@
 >*NEXT*TRACK*==callUrlKodi '{"jsonrpc":"2.0","method":"Player.GoTo","params":{"playerid":'$(getActivePlayerId)',"to":"next"},"id":1}'; return
 >*PREVIOUS*TRACK*==callUrlKodi '{"jsonrpc":"2.0","method":"Player.GoTo","params":{"playerid":'$(getActivePlayerId)',"to":"previous"},"id":1}'; return
 >*START*MOVIE (*)==playMovieSearched (1); return
->*EXECUTE*PLUGIN (*)|*START*PLUGIN (*)==callUrlKodi "{\"jsonrpc\":\"2.0\",\"method\":\"Addons.ExecuteAddon\",\"params\":{\"addonid\":\"plugin.video.(1)\"},\"id\":1}"; return
+>*EXECUTE*ADDON (*)|*START*ADDON (*)==callUrlKodi "{\"jsonrpc\":\"2.0\",\"method\":\"Addons.ExecuteAddon\",\"params\":{\"addonid\":\"plugin.video.(1)\"},\"id\":1}"; return
 >*START*TVSHOW (*) SEASON (*) EPISODE (*)==playTvShowSearched (1) (2) (3); return
 >AGAIN*==jv_repeat_last_command; return
 >FINISH*WITH*KODI|*CODI*|*CODY*|*KODY*|*KAUDI*|*KAUDY*|*CAUDI*|*CAUDY*==say "end of the kodi control"
