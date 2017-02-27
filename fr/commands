@@ -33,7 +33,7 @@
 >*PISTE*SUIVANTE*==callUrlKodi '{"jsonrpc":"2.0","method":"Player.GoTo","params":{"playerid":'$(getActivePlayerId)',"to":"next"},"id":1}'; return
 >*PISTE*PRECEDENTE*==callUrlKodi '{"jsonrpc":"2.0","method":"Player.GoTo","params":{"playerid":'$(getActivePlayerId)',"to":"previous"},"id":1}'; return
 >*LANCE*FILM (*)==playMovieSearched (1); return
->*EXECUTE PLUGIN* (*)|*LANCE PLUGIN (*)==callUrlKodi "{\"jsonrpc\":\"2.0\",\"method\":\"Addons.ExecuteAddon\",\"params\":{\"addonid\":\"plugin.video.(1)\"},\"id\":1}"; return
+>*EXECUTE*PLUGIN (*)|*LANCE*PLUGIN (*)==callUrlKodi "{\"jsonrpc\":\"2.0\",\"method\":\"Addons.ExecuteAddon\",\"params\":{\"addonid\":\"plugin.video.(1)\"},\"id\":1}"; return
 >*LANCE*SERIE (*) SAISON (*) EPISODE (*)==playTvShowSearched (1) (2) (3); return
 >ENCORE*==jv_repeat_last_command; return
 >TERMINE*KODI|*CODI*|*CODY*|*KODY*|*KAUDI*|*KAUDY*|*CAUDI*|*CAUDY*==say "Controle de kodi terminé"
