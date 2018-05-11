@@ -1,3 +1,2 @@
 #!/bin/bash
-kodiIp=XXX.XXX.X.XX
-kodiPort=XXXX
+kodi=[{\"name\":\"XXXXX\",\"kodiUser\":\"XXXXX\",\"kodiPassword\":\"XXXX\",\"kodiIp\":\"XXX.XXX.X.XX\",\"kodiPort\":\"XXXX\"},{\"name\":\"XXXXXX\",\"kodiUser\":\"XXXX\",\"kodiPassword\":\"XXXXXXX\",\"kodiIp\":\"XXX.XXX.X.XX\",\"kodiPort\":\"XXXX\"}]

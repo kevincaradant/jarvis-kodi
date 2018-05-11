@@ -2,24 +2,40 @@
 # Here you can create functions which will be available from the commands file
 # You can also use here user variables defined in your config file
 callUrlKodi(){
-    curl -s -H "Content-Type: application/json" -X POST -d ${1} http://$kodiIp:$kodiPort/jsonrpc
+    if [ -z "$2" ]; then
+        kodiIp=($(echo "$kodi" | jq '.[0].kodiIp' | tr -d '"'))
+        kodiPort=($(echo "$kodi" | jq '.[0].kodiPort' | tr -d '"'))
+        kodiUser=($(echo "$kodi" | jq '.[0].kodiUser' | tr -d '"'))
+        kodiPassword=($(echo "$kodi" | jq '.[0].kodiPassword' | tr -d '"'))
+    else
+        kodiIp=($(echo "$kodi" | jq 'map(select(.name == "'$2'") | .kodiIp) | first' | tr -d '"'))
+        kodiPort=($(echo "$kodi" | jq 'map(select(.name == "'$2'") | .kodiPort) | first' | tr -d '"'))
+        kodiUser=($(echo "$kodi" | jq 'map(select(.name == "'$2'") | .kodiUser) | first' | tr -d '"'))
+        kodiPassword=($(echo "$kodi" | jq 'map(select(.name == "'$2'") | .kodiPassword) | first' | tr -d '"'))
+    fi
+
+    if [[ $kodiUser = "null" || $kodiPassword = "null" ]]; then
+        curl -s -H "Content-Type: application/json" -X POST -d ${1} http://$kodiIp:$kodiPort/jsonrpc
+    else
+        curl -s -H "Content-Type: application/json" -X POST -d ${1} http://$kodiUser:$kodiPassword@$kodiIp:$kodiPort/jsonrpc
+    fi
 }
 
 getMovieId(){
-    callUrlKodi '{"jsonrpc":"2.0","method":"VideoLibrary.GetMovies","id":"1484897668671","params":{"properties":["title"],"limits":{"start":0,"end":1},"sort":{"method":"title","order":"ascending","ignorearticle":true},"filter":{"operator":"contains","field":"title","value":"'$1'"}}}' | jq .result.movies[0].movieid
+    callUrlKodi '{"jsonrpc":"2.0","method":"VideoLibrary.GetMovies","id":"1484897668671","params":{"properties":["title"],"limits":{"start":0,"end":1},"sort":{"method":"title","order":"ascending","ignorearticle":true},"filter":{"operator":"contains","field":"title","value":"'$1'"}}}' $2 | jq .result.movies[0].movieid
 }
 
 getActivePlayerId(){
-    callUrlKodi '{"jsonrpc":"2.0","method":"Player.GetActivePlayers","id":1}' | jq .result[0].playerid
+    callUrlKodi '{"jsonrpc":"2.0","method":"Player.GetActivePlayers","id":1}' $1 | jq .result[0].playerid
 }
 
 playMovieSearched(){
-    movieId=$(getMovieId $1)
-    callUrlKodi '{"jsonrpc":"2.0","method":"Player.Open","params":{"item":{"movieid":'$movieId'}},"id":1}'
+    movieId=$(getMovieId $1 $2)
+    callUrlKodi '{"jsonrpc":"2.0","method":"Player.Open","params":{"item":{"movieid":'$movieId'}},"id":1}' $2
 }
 
 getTvShowId(){
-    callUrlKodi '{"jsonrpc":"2.0","method":"VideoLibrary.GetTvShows","id":"1484897668671","params":{"properties":["title"],"limits":{"start":0,"end":1},"sort":{"method":"title","order":"ascending","ignorearticle":true},"filter":{"operator":"contains","field":"title","value":"'$1'"}}}' | jq .result.tvshows[0].tvshowid
+    callUrlKodi '{"jsonrpc":"2.0","method":"VideoLibrary.GetTvShows","id":"1484897668671","params":{"properties":["title"],"limits":{"start":0,"end":1},"sort":{"method":"title","order":"ascending","ignorearticle":true},"filter":{"operator":"contains","field":"title","value":"'$1'"}}}' $2 | jq .result.tvshows[0].tvshowid
 }
 
 # Table to match between an integer and a string
@@ -120,14 +136,14 @@ getNumberIntFromStr(){
 }
 
 getEpisodeId(){
-    callUrlKodi '{"jsonrpc":"2.0","method":"VideoLibrary.GetEpisodes","params":{"tvshowid":'$1',"season":'$2',"limits":{"start":0,"end":100},"sort":{"order":"ascending","method":"track","ignorearticle":true}},"id":1}' | jq .result.episodes[$(($3-1))].episodeid
+    callUrlKodi '{"jsonrpc":"2.0","method":"VideoLibrary.GetEpisodes","params":{"tvshowid":'$1',"season":'$2',"limits":{"start":0,"end":100},"sort":{"order":"ascending","method":"track","ignorearticle":true}},"id":1}' $4 | jq .result.episodes[$(($3-1))].episodeid
 }
 
 playTvShowSearched(){
     tvShowId=$(getTvShowId $1)
     tvShowSeasonNumberInt=$(getNumberIntFromStr $2)
     tvShowEpisodeNumberInt=$(getNumberIntFromStr $3)
-    tvShowEpisodeId=$(getEpisodeId $tvShowId $tvShowSeasonNumberInt $tvShowEpisodeNumberInt)
-    callUrlKodi '{"jsonrpc":"2.0","method":"Player.Open","params":{"item":{"episodeid":'$tvShowEpisodeId'},"options":{"resume":true}},"id":3}'
+    tvShowEpisodeId=$(getEpisodeId $tvShowId $tvShowSeasonNumberInt $tvShowEpisodeNumberInt $4)
+    callUrlKodi '{"jsonrpc":"2.0","method":"Player.Open","params":{"item":{"episodeid":'$tvShowEpisodeId'},"options":{"resume":true}},"id":3}' $4
 }
 
